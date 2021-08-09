@@ -1,0 +1,1 @@
+{"redirects":[],"rewrites":[{"fromPath":"/friend-details/*","toPath":"/friend-details/[...]/"}]}
