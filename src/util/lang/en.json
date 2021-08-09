@@ -1,0 +1,19 @@
+{
+  "homeTitle": "Friends List",
+  "homeBackLink": "Back to Friends",
+  "bio": "Bio",
+  "sortBy": "Sort by",
+  "newestSort": "Newest First",
+  "oldestSort": "Oldest First",
+  "follow": "Follow",
+  "following": "Following",
+  "notFoundSeo": "Not Found",
+  "friendDetailsSeo": "Friend Details",
+  "indexSeo": "Friends List",
+  "nothingHere": "We've got nothing here",
+  "goHome": "Go Home",
+  "search": "Search",
+  "connectedOn": "Connected on",
+  "darkTheme": "Dark Theme",
+  "lightTheme": "Light Theme"
+}
