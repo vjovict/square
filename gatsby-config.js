@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/square',
   siteMetadata: {
     title: `Square`,
     description: `A simple friends list application built with React using Gatsby`,
