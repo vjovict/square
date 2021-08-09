@@ -50,6 +50,18 @@ const Layout: React.FC<Props> = ({ pageContext, children }) => {
     ReactGA.pageview(page)
   }, [initialisedGA, location])
 
+  React.useEffect(() => {
+    if (!initialisedGA) {
+      return
+    }
+    ReactGA.set({ theme })
+    ReactGA.event({
+      action: "Changed Theme",
+      category: "Theme",
+      label: theme
+    })
+  }, [initialisedGA, theme])
+
   return (
     <LanguageContext.Provider value={langCtxtVal}>
       <div className={`wrapper ${theme}`}>

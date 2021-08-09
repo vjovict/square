@@ -1,4 +1,5 @@
 import React from "react"
+import ReactGA from "react-ga"
 
 import Data from "../data/friendsList.json"
 import storage from "../util/storage"
@@ -14,7 +15,7 @@ export interface IFriendPayload {
   following: boolean
 }
 
-function useSiteFriends() {
+function useSiteFriends () {
   const [friends, setFriends] = React.useState<IFriendPayload[]>(() => {
     const cachedData = storage.get(STORAGE_KEY)
 
@@ -30,10 +31,22 @@ function useSiteFriends() {
   const toggleFavorite = React.useCallback(
     (id: number) => (ev: React.MouseEvent<HTMLDivElement>) => {
       ev.stopPropagation()
+      let connect = false
 
       setFriends(data =>
-        data.map(f => (f.id === id ? { ...f, following: !f.following } : f))
+        data.map(f => {
+          if (f.id === id && !f.following) {
+            connect = true
+          }
+          return f.id === id ? { ...f, following: !f.following } : f
+        })
       )
+
+      ReactGA.event({
+        action: "Follow",
+        category: "Social",
+        label: connect ? "Yes" : "No"
+      })
     },
     []
   )
