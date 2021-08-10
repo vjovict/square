@@ -36,7 +36,7 @@ const Layout: React.FC<Props> = ({ pageContext, children }) => {
     if (initialisedGA) {
       return
     }
-    ReactGA.initialize("UA-204317453-1")
+    ReactGA.initialize("UA-204555123-1")
     setInitialisedGA(true)
   }, [initialisedGA])
 
@@ -65,7 +65,7 @@ const Layout: React.FC<Props> = ({ pageContext, children }) => {
   return (
     <LanguageContext.Provider value={langCtxtVal}>
       <div className={`wrapper ${theme}`}>
-        <Header layout={layout} theme={theme} />
+        {initialisedGA && <Header layout={layout} theme={theme} />}
         <div
           className='theme-palette'
           onClick={() => setTheme(t => (t === "dark" ? "light" : "dark"))}
