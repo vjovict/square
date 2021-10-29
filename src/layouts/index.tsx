@@ -2,6 +2,7 @@ import React from "react"
 import ReactGA from "react-ga"
 import { PageProps } from "gatsby"
 import { useLocation } from "@reach/router"
+import { Helmet } from "react-helmet"
 
 import storage from "../util/storage"
 import en from "../util/lang/en.json"
@@ -64,6 +65,16 @@ const Layout: React.FC<Props> = ({ pageContext, children }) => {
 
   return (
     <LanguageContext.Provider value={langCtxtVal}>
+      <Helmet>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH60L0XKP4"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-CH60L0XKP4');`
+        }}></script>
+      </Helmet>
       <div className={`wrapper ${theme}`}>
         {initialisedGA && <Header layout={layout} theme={theme} />}
         <div
