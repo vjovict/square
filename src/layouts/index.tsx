@@ -2,6 +2,7 @@ import React from "react"
 import ReactGA from "react-ga"
 import { PageProps } from "gatsby"
 import { useLocation } from "@reach/router"
+import GoogleTagManager from "react-gtm-module"
 
 import storage from "../util/storage"
 import en from "../util/lang/en.json"
@@ -36,7 +37,8 @@ const Layout: React.FC<Props> = ({ pageContext, children }) => {
     if (initialisedGA) {
       return
     }
-    ReactGA.initialize("UA-204555123-1")
+    GoogleTagManager.initialize({ gtmId: "GTM-M8X63LP" })
+    // ReactGA.initialize("UA-204555123-1")
     setInitialisedGA(true)
   }, [initialisedGA])
 
