@@ -38,7 +38,7 @@ const Layout: React.FC<Props> = ({ pageContext, children }) => {
       return
     }
     GoogleTagManager.initialize({ gtmId: "GTM-M8X63LP" })
-    // ReactGA.initialize("UA-204555123-1")
+    ReactGA.initialize("UA-204555123-1")
     setInitialisedGA(true)
   }, [initialisedGA])
 
